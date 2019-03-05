@@ -1,5 +1,5 @@
-# completor-ruby-lang
-Vim ruby autocompletion with help of completor and language server
+# vim-ruby-autocomplete
+Vim ruby autocompletion with help of solargraph and vim language server
 
 ## Requirements
 This plugin supports linux only<br>
