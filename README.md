@@ -19,7 +19,7 @@ Tested on:
 
 Add gem bins to PATH in your .bashrc:
 * Check your ruby version!
-* <code>PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin</code>  
+* <code>PATH=$PATH:$HOME/.gem/ruby/your-ruby-version/bin</code>  
 
 ### Vim Plugins
 * [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim)
@@ -51,7 +51,7 @@ plugins: []
 ```
 
 ## Usage
-By default completion can be triggered with <C-X><C-O>
+By default completion can be triggered with <code>CTRL-X + CTRL-O</code>
 
 Follwing optional variables are available for your .vimrc
 ``` vim
@@ -71,7 +71,7 @@ let g:completor_ruby_omni_trigger = '(\.[$\w]\*|::[$\w]\*)$'
 ```
 
 ### [MUComplete](https://github.com/lifepillar/vim-mucomplete) and [Supertab](https://github.com/ervandew/supertab)
-On default configuration pushich <Tab> should do the trick.
+On default configuration pushich <code>TAB</code> should do the trick.
 
 ### [Neocomplete](https://github.com/Shougo/neocomplete.vim)
 ``` vim
