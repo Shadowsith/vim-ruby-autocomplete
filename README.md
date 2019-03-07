@@ -53,6 +53,17 @@ plugins: []
 ## Usage
 By default completion can be triggered with <C-X><C-O>
 
+Follwing optional variables are available for your .vimrc
+``` vim
+" if set to 1 you want to start solargraph by your self
+let g:solargraph_listen_manually = 1 " default 0
+
+" vim should sleep short time until solargraph socket server is ready
+" vim waits only on first startup of a ruby file, if you add additional
+" files, vim does and not need to wait anymore
+let g:solargraph_listen_time = 100 " (in milliseconds, default 500 ms)
+```
+
 ### [Completor](https://github.com/maralla/completor.vim)
 Add following in your .vimrc:
 ``` vim
@@ -66,6 +77,10 @@ let g:completor_ruby_omni_trigger = '(\.[$\w]\*|::[$\w]\*)$'
 ## Issues
 Sometimes the solargraph socket server will not start by default 
 than you need to restart vim.
+
+## TODO
+* Vim documentation (:help vim-ruby-autocomplete)
+* Async startup of solargraph instead of synchronous waiting time
 
 ## See also
 There are similiar plugins to vim-ruby-autocomplete but I couldn't get them to work
