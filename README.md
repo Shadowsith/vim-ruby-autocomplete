@@ -63,7 +63,13 @@ let g:completor_ruby_omni_trigger = '(\.[$\w]\*|::[$\w]\*)$'
 
 ### Deoplete
 
-
 ## Issues
 Sometimes the solargraph socket server will not start by default 
 than you need to restart vim.
+
+## See also
+There are similiar plugins to vim-ruby-autocomplete but I couldn't get them to work
+on my systems. That was the initial idea to write this small plugin. 
+* [vim-solargraph](https://github.com/hackhowtofaq/vim-solargraph)
+* [vim-monster](https://github.com/osyo-manga/vim-monster)
+* [deoplete-solargraph](https://github.com/uplus/deoplete-solargraph) (deoplete only)
