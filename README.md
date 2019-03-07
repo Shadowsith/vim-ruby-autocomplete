@@ -70,16 +70,29 @@ Add following in your .vimrc:
 let g:completor_ruby_omni_trigger = '(\.[$\w]\*|::[$\w]\*)$'
 ```
 
-### MUComplete
+### [MUComplete](https://github.com/lifepillar/vim-mucomplete) and [Supertab](https://github.com/ervandew/supertab)
+On default configuration pushich <Tab> should do the trick.
 
-### Deoplete
+### [Neocomplete](https://github.com/Shougo/neocomplete.vim)
+``` vim
+let g:neocomplete#sources#omni#input_patterns = {
+\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+\}
+
+```
+
+## Documentation
+For additional information write follwing in Vim:
+``` vim
+:help ruby-autocomplete
+
+```
 
 ## Issues
 Sometimes the solargraph socket server will not start by default 
 than you need to restart vim.
 
 ## TODO
-* Vim documentation (:help vim-ruby-autocomplete)
 * Async startup of solargraph instead of synchronous waiting time
 
 ## See also

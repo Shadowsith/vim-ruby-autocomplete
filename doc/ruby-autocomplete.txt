@@ -1,0 +1,156 @@
+*ruby-autocomplete*   Vim version 8.1          Last change: 2019 Mar 07
+
+Author:  Shadowsith <https://github.com/Shadowsith>
+Source:  https://github.com/Shadowsith/vim-ruby-autocomplete
+License: MIT
+
+==============================================================================
+CONTENTS                                *ruby-autocomplete-contents*
+
+        1. Introduction................ |ruby-autocomplete-introduction|
+        2. Requirements................ |ruby-autocomplete-requirements|
+        3. Installation................ |ruby-autocomplete-installation|
+        4. Configuration............... |ruby-autocomplete-configuration|
+        5. Getting started............. |ruby-autocomplete-getting-started|
+        6. Completion methods.......... |ruby-autocomplete-methods|
+        7. Troubeshooting.............. |ruby-autocomplete-troubeshooting|
+        8. Providing feedback.......... |ruby-autocomplete-feedback|
+
+==============================================================================
+1. Introduction                         *ruby-autocomplete-introduction*
+
+vim-ruby-autocomplete is a small plugin to easy use the solargraph ruby 
+completion server with help of LanguageClient-neovim for Vim8/Neovim.
+
+It is only a wrapper that starts/stops solargraph for you and provides 
+information how to use this plugin with vim completion engines like
+completor or deoplete and was made because existing ruby-completion plugins
+didn't worked for the author.
+
+Tested system configurations:
+- Arch/Manjaro Linux
+- Ruby 2.6.*
+- Vim 8.1
+- Terminal: Konsole
+
+==============================================================================
+2. Requirements                         *ruby-autocomplete-requirements*
+
+To use this plugin you need Vim8 or Neovim with python support installed.
+
+As additional third-party-requirements you have to install ruby and 
+following gems:
+    
+    $ gem install rdoc yarn solargraph irb rubocop
+
+After Solargraph has installed you need to add the follwing line 
+into your .bashrc:
+
+    PATH=$PATH:$HOME/.gem/ruby/<your-ruby-verion>/bin
+
+This ensures that your cli finds your solargraph binary files.
+
+You also need the LanguageClient-neovim plugin by autozimu:
+https://github.com/autozimu/LanguageClient-neovim
+
+==============================================================================
+3. Installation                         *ruby-autocomplete-installation*
+
+It is very recommended to use one of various plugin managers for vim 
+to install vim-ruby-autocomplete and the required LanguageClient-neovim.
+
+Please read the instructions of one of them how to install the plugin:
+* Pathogen  https://github.com/tpope/vim-pathogen
+* Vundle    https://github.com/VundleVim/Vundle.vim
+* Vim-Plug  https://github.com/junegunn/vim-plug 
+* Dein      https://github.com/Shougo/dein.vim
+
+==============================================================================
+4. Configuration                        *ruby-autocomplete-configuration*
+
+When correctly installed the plugin will autostart Solargraph every time 
+after Vim has started. If additional ruby files are opened in the same Vim
+session (new buffer, tabs) the current Solargraph connection will be used.
+If Vim is closing, the Solargraph socket server will also be stopped.
+
+There are a view variables that can be changed in your .vimrc file:
+
+    let g:solargraph_listen_manually = 1 " default 0
+    
+    If this variable is set to 1 Solargraph need to be started by the 
+    user themself. Than you have to execute '$ solargraph socket' in another
+    terminal or write a custom systemd entry to autostart Solargraph.
+    By default Solargraph starts/stops with Vim.
+
+    let g:solargraph_listen_time = 300 " (in milliseconds, default 500 ms)
+
+    This variable controls how long Vim is waiting before it is starting
+    when g:solargraph_listen_manually is set to 0. It is recommended because
+    the Solargraph socket server needs up to a second until it is complety
+    started. If the time is set to short, Ruby autocompletion will not work.
+    On a later plugin version it is planned to make this asynchronous and 
+    the user will not have any waiting time on starting Vim.
+
+    The time you need to setup depends on how long your processor needs to
+    start the Solargraph socket server (should be between 100ms and 1000ms).
+
+
+==============================================================================
+5. Getting started                      *ruby-autocomplete-getting-started*
+
+If all requirements are installed correctly you can test the autocompletion
+by execute the Vim's omnifunc hotkey <C-X><C-O>
+
+If you are more familiar with <Ctrl-Space> to trigger autocompletion you could
+add this setting on your .vimrc: <C-@> <C-X><X-O>
+
+==============================================================================
+6. Completion methods                   *ruby-autocomplete-methods*
+
+If you use Vim as active developing plattform it is recommended to use one
+of serveral completion engines. Here are a view examples how to setup them
+with this plugin.
+
+MUComplete/Supertab:
+    With both plugins completion should be enabled on pushing tab.
+
+Completor:
+    let g:completor_ruby_omni_trigger = '(\.[$\w]\*|::[$\w]\*)$'
+
+Neocomplete:
+    let g:neocomplete#sources#omni#input_patterns = {
+    \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+    \}
+    
+
+==============================================================================
+7. Troubeshooting                       *ruby-autocomplete-troubeshooting*
+
+If errors occur / autocompletion does not work please be sure that:
+
+- All requirements are installed correctly
+- Bash knows the PATH of solargraph 
+    $ solargraph help   or  $ which solargraph
+- Start the solargraph socket server and show if errors are thrown
+    $ solargraph socket
+- In Vim open :terminal and test if solargraph is running:
+    $ ps -aux | grep solargraph 
+- Look if Vim throws errors on the status/execution line
+
+==============================================================================
+8. Providing feedback                   *ruby-autocomplete-feedback*
+
+If troubeshooting does not get a positive result for you write a issue
+at the GitHub Repository page:
+
+Please write given information in the post: 
+- Linux OS and version
+- Ruby version
+- installed Vim package
+- terminal
+
+https://github.com/Shadowsith/vim-ruby-autocomplete
+
+You can also add feature requests or if you have a good idea and knowledge
+about VimScript you can fork this plugin and write pull requests.
+
