@@ -4,6 +4,9 @@ Vim/Neovim ruby autocompletion with help of solargraph and vim language server
 This plugin is based on following blog
 [post](https://blog.schembri.me/post/solargraph-in-vim/) by Jamie Schembri.<br>
 
+## Demo
+![Demo](https://shadowsith.de/vim-ruby-autocomplete/demo.gif)
+
 ## Requirements
 This plugin supports linux only<br>
 
