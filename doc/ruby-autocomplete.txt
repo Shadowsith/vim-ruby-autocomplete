@@ -115,7 +115,7 @@ MUComplete/Supertab:
     With both plugins completion should be enabled on pushing tab.
 
 Completor:
-    let g:completor_ruby_omni_trigger = '(\.[$\w]\*|::[$\w]\*)$'
+    let g:completor_ruby_omni_trigger = '([$\w]{1,}|\.[\w]*|::[$\w]*)$'
 
 Neocomplete:
     let g:neocomplete#sources#omni#input_patterns = {

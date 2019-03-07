@@ -67,7 +67,7 @@ let g:solargraph_listen_time = 100 " (in milliseconds, default 500 ms)
 ### [Completor](https://github.com/maralla/completor.vim)
 Add following in your .vimrc:
 ``` vim
-let g:completor_ruby_omni_trigger = '(\.[$\w]\*|::[$\w]\*)$'
+let g:completor_ruby_omni_trigger = '([$\w]{1,}|\.[\w]*|::[$\w]*)$'
 ```
 
 ### [MUComplete](https://github.com/lifepillar/vim-mucomplete) and [Supertab](https://github.com/ervandew/supertab)
