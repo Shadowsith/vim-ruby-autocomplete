@@ -5,5 +5,3 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 autocmd FileType ruby setlocal omnifunc=LanguageClient#complete
-
-echo g:ruby_autocomplete_solargraph
