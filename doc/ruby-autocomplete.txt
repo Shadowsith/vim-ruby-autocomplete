@@ -68,34 +68,17 @@ Please read the instructions of one of them how to install the plugin:
 ==============================================================================
 4. Configuration                        *ruby-autocomplete-configuration*
 
+You need to add following variable to your .vimrc:
+
+let g:ruby_autocomplete_solargraph = <path to solargraph>
+
+The path should be something like
+~/.gem/ruby/<ruby-version>/bin/solargraph
+
 When correctly installed the plugin will autostart Solargraph every time 
-after Vim has started. If additional ruby files are opened in the same Vim
-session (new buffer, tabs) the current Solargraph connection will be used.
-If Vim is closing, the Solargraph socket server will also be stopped.
+after Vim has started. It will use stdio mode and works directly.
 
-There are a view variables that can be changed in your .vimrc file:
-
-    let g:solargraph_listen_manually = 1 " default 0
-    
-    If this variable is set to 1 Solargraph need to be started by the 
-    user themself. Than you have to execute '$ solargraph socket' in another
-    terminal or write a custom systemd entry to autostart Solargraph.
-    By default Solargraph starts/stops with Vim.
-
-    let g:solargraph_listen_time = 300 " (in milliseconds, default 500 ms)
-
-    This variable controls how long Vim is waiting before it is starting
-    when g:solargraph_listen_manually is set to 0. It is recommended because
-    the Solargraph socket server needs up to a second until it is complety
-    started. If the time is set to short, Ruby autocompletion will not work.
-    On a later plugin version it is planned to make this asynchronous and 
-    the user will not have any waiting time on starting Vim.
-
-    The time you need to setup depends on how long your processor needs to
-    start the Solargraph socket server (should be between 100ms and 1000ms).
-
-
-==============================================================================
+T==============================================================================
 5. Getting started                      *ruby-autocomplete-getting-started*
 
 If all requirements are installed correctly you can test the autocompletion

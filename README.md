@@ -7,12 +7,13 @@ This plugin is based on following blog
 ## Demo
 ![Demo](https://shadowsith.de/vim-ruby-autocomplete/demo.gif)
 
-## Requirements
-This plugin supports linux only<br>
 
 Tested on:
 * Arch Linux (Manjaro)
 * Ruby 2.6.\*
+
+## Requirements
+This plugin supports linux only<br>
 
 ### Gems
 * <code>gem install solargraph rdoc irb rubocop yarn</code>
@@ -55,13 +56,10 @@ By default completion can be triggered with <code>CTRL-X + CTRL-O</code>
 
 Follwing optional variables are available for your .vimrc
 ``` vim
-" if set to 1 you want to start solargraph by your self
-let g:solargraph_listen_manually = 1 " default 0
+let = g:ruby_autocomplete_solargraph = '<path to solragraph bin>'
+" If you dont use rvm the path should be like:
+" ~/.gem/ruby/<ruby version>/bin/solargraph
 
-" vim should sleep short time until solargraph socket server is ready
-" vim waits only on first startup of a ruby file, if you add additional
-" files, vim does and not need to wait anymore
-let g:solargraph_listen_time = 100 " (in milliseconds, default 500 ms)
 ```
 
 ### [Completor](https://github.com/maralla/completor.vim)
