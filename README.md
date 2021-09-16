@@ -56,7 +56,7 @@ By default completion can be triggered with <code>CTRL-X + CTRL-O</code>
 
 Follwing optional variables are available for your .vimrc
 ``` vim
-let = g:ruby_autocomplete_solargraph = '<path to solragraph bin>'
+let g:ruby_autocomplete_solargraph = '<path to solragraph bin>'
 " If you dont use rvm the path should be like:
 " ~/.gem/ruby/<ruby version>/bin/solargraph
 
